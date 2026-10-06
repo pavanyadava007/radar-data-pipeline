@@ -1,0 +1,13 @@
+# Versioned AI-training datasets built by `rdp export`.
+# filters are SQL-safe column == value conditions on the catalogue `segments` table.
+datasets:
+  - name: rd_clean
+    version: "1.0.0"
+    description: log range-Doppler maps (dB re noise floor), edge-truncated and rule-flagged segments removed
+    filters:
+      edge_flag: 0
+      rule_flags: 0
+  - name: rd_all
+    version: "1.0.0"
+    description: log range-Doppler maps of every segment (no quality filtering), for the filtering ablation
+    filters: {}
