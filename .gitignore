@@ -1,0 +1,12 @@
+data/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+*.h5
+*.npz
+*.pt
+*.ckpt
+*.sqlite
