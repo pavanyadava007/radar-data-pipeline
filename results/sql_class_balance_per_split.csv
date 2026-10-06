@@ -1,0 +1,5 @@
+class_group,paper_train,paper_val,paper_test,grouped_train,grouped_val,grouped_test,total
+drone,46768,6000,6000,34849,12499,11420,58768
+bird,5792,1000,1000,4650,1454,1688,7792
+human,4028,1000,1000,3188,1426,1414,6028
+reflector,1280,1000,1000,1979,668,633,3280

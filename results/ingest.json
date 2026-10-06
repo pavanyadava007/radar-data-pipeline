@@ -1,0 +1,78 @@
+{
+  "source_file": "data_SAAB_SIRS_77GHz_FMCW.npy",
+  "source_md5": "01d66ba7b1ccc04477a9e69b2813f251",
+  "n_measurements": 130,
+  "n_segments": 75868,
+  "n_edge_flagged": 67,
+  "n_exact_duplicate_segments": 57,
+  "segments_per_label": {
+    "CR": 3280,
+    "D1": 6921,
+    "D2": 9555,
+    "D3": 10212,
+    "D4": 8735,
+    "D5": 12093,
+    "D6": 11252,
+    "black-headed gull": 4364,
+    "heron": 387,
+    "human_run": 1499,
+    "human_walk": 4529,
+    "pigeon": 32,
+    "raven": 19,
+    "seagull": 2550,
+    "seagull and black-headed gull": 440
+  },
+  "measurements_per_label": {
+    "CR": 19,
+    "D1": 8,
+    "D2": 9,
+    "D3": 4,
+    "D4": 4,
+    "D5": 4,
+    "D6": 15,
+    "black-headed gull": 11,
+    "heron": 5,
+    "human_run": 4,
+    "human_walk": 7,
+    "pigeon": 1,
+    "raven": 1,
+    "seagull": 34,
+    "seagull and black-headed gull": 4
+  },
+  "segments_per_class_group": {
+    "drone": 58768,
+    "bird": 7792,
+    "human": 6028,
+    "reflector": 3280
+  },
+  "paper_split_counts": {
+    "1": 57868,
+    "2": 9000,
+    "3": 9000
+  },
+  "grouped_split_counts": {
+    "1": 44666,
+    "2": 16047,
+    "3": 15155
+  },
+  "grouped_split_measurements": {
+    "1": 62,
+    "2": 34,
+    "3": 34
+  },
+  "measurement_links_from_duplicates": [
+    [
+      88,
+      98
+    ],
+    [
+      104,
+      105
+    ]
+  ],
+  "h5_bytes": 778597824,
+  "timing_s": {
+    "load_npy": 1.04,
+    "write_h5_and_sqlite": 1.31
+  }
+}

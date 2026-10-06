@@ -1,0 +1,114 @@
+{
+  "dataset": "rd_clean",
+  "version": "1.0.0",
+  "description": "log range-Doppler maps (dB re noise floor), edge-truncated and rule-flagged segments removed",
+  "rdp_version": "0.1.0",
+  "source": {
+    "file": "data_SAAB_SIRS_77GHz_FMCW.npy",
+    "md5": "01d66ba7b1ccc04477a9e69b2813f251",
+    "doi": "10.5281/zenodo.5845259",
+    "license": "CC BY 4.0"
+  },
+  "filters": {
+    "edge_flag": 0,
+    "rule_flags": 0
+  },
+  "n_segments": 75257,
+  "input": {
+    "array": "x_rd_db",
+    "shape": [
+      75257,
+      5,
+      256
+    ],
+    "dtype": "float16",
+    "meaning": "10*log10 RD power re per-segment noise floor; axes segment, range cell, Doppler bin (0 Hz at 128)"
+  },
+  "class_maps": {
+    "y_group": [
+      "drone",
+      "bird",
+      "human",
+      "reflector"
+    ],
+    "y_label": [
+      "CR",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "black-headed gull",
+      "heron",
+      "human_run",
+      "human_walk",
+      "pigeon",
+      "raven",
+      "seagull",
+      "seagull and black-headed gull"
+    ],
+    "y_drone": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6"
+    ]
+  },
+  "splits": {
+    "paper_split": "per-sample split of Karlsson et al. 2022 (1 train, 2 val, 3 test)",
+    "split_grouped": "grouped by measurement (rdp.splits.grouped_split, seed 0)"
+  },
+  "counts_paper_split": {
+    "1": {
+      "drone": 46573,
+      "bird": 5676,
+      "human": 4021,
+      "reflector": 1196
+    },
+    "2": {
+      "drone": 5975,
+      "bird": 979,
+      "human": 1000,
+      "reflector": 940
+    },
+    "3": {
+      "drone": 5981,
+      "bird": 984,
+      "human": 998,
+      "reflector": 934
+    }
+  },
+  "counts_grouped_split": {
+    "1": {
+      "drone": 34757,
+      "bird": 4535,
+      "human": 3185,
+      "reflector": 1925
+    },
+    "2": {
+      "drone": 12427,
+      "bird": 1447,
+      "human": 1422,
+      "reflector": 573
+    },
+    "3": {
+      "drone": 11345,
+      "bird": 1657,
+      "human": 1412,
+      "reflector": 572
+    }
+  },
+  "sha256": {
+    "x_rd_db": "71a07253332bf9056557f16ad2c94d671e97878f8d8e4fdc29157bc76fad775d",
+    "segment_id": "af761d91ef8b2b5e5378431e61125bafef858c3305ec9ed18ac6b08c286c3434",
+    "measurement_id": "7ab40354c53ea77f9a6cc2d3c0500cb4defc97c073b7ce6463427da7c396993b",
+    "y_group": "3af64385298e37d9611c91883e374526cd98d620752cc88a64e569c99af66769",
+    "y_label": "07874f7380e1d97090db5a473032184f74e7a6b38e83d893231807a4327b8828",
+    "y_drone": "aaeb1258dca400044d9315fc4d1764005dc5ddae2d017642dd5872413200cfa1",
+    "paper_split": "1b970106a57f69d98a8ffa0475f3960081fd23d6d462a1af34b4fc8e71099d37",
+    "split_grouped": "a3d10e43d4459480568a1ca60b0788349a956c7e85adfb216784afc574843483"
+  }
+}

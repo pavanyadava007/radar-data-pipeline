@@ -1,0 +1,2010 @@
+{
+  "protocol": "Stage 5: train a small CNN on log RD maps; paper split vs grouped split, filtered vs unfiltered.\n\nExperiments (each over SEEDS):\n  task=group (drone/bird/human/reflector): train set rd_clean or rd_all  x  split paper or grouped\n  task=drone (D1-D6):                      train set rd_clean            x  split paper or grouped\nEvery model is evaluated on the test split of rd_clean (same rows for both training sets)\nand on the test split of rd_all. Model selection: epoch with best val macro-F1.",
+  "epochs": 12,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "summary": {
+    "group|paper|rd_clean": {
+      "clean_test": {
+        "accuracy_mean": 0.9937,
+        "accuracy_std": 0.0007,
+        "macro_f1_mean": 0.99,
+        "macro_f1_std": 0.0013,
+        "n_seeds": 3,
+        "n_test": 8897
+      },
+      "all_test": {
+        "accuracy_mean": 0.9934,
+        "accuracy_std": 0.0006,
+        "macro_f1_mean": 0.9895,
+        "macro_f1_std": 0.0012,
+        "n_seeds": 3,
+        "n_test": 9000
+      },
+      "train_seconds_mean": 10.53
+    },
+    "group|paper|rd_all": {
+      "clean_test": {
+        "accuracy_mean": 0.9934,
+        "accuracy_std": 0.0004,
+        "macro_f1_mean": 0.9899,
+        "macro_f1_std": 0.001,
+        "n_seeds": 3,
+        "n_test": 8897
+      },
+      "all_test": {
+        "accuracy_mean": 0.9933,
+        "accuracy_std": 0.0005,
+        "macro_f1_mean": 0.9897,
+        "macro_f1_std": 0.001,
+        "n_seeds": 3,
+        "n_test": 9000
+      },
+      "train_seconds_mean": 12.33
+    },
+    "drone|paper|rd_clean": {
+      "clean_test": {
+        "accuracy_mean": 0.9797,
+        "accuracy_std": 0.001,
+        "macro_f1_mean": 0.9797,
+        "macro_f1_std": 0.001,
+        "n_seeds": 3,
+        "n_test": 5981
+      },
+      "all_test": {
+        "accuracy_mean": 0.9798,
+        "accuracy_std": 0.001,
+        "macro_f1_mean": 0.9798,
+        "macro_f1_std": 0.001,
+        "n_seeds": 3,
+        "n_test": 6000
+      },
+      "train_seconds_mean": 9.01
+    },
+    "group|grouped|rd_clean": {
+      "clean_test": {
+        "accuracy_mean": 0.9701,
+        "accuracy_std": 0.0029,
+        "macro_f1_mean": 0.9534,
+        "macro_f1_std": 0.0023,
+        "n_seeds": 3,
+        "n_test": 14986
+      },
+      "all_test": {
+        "accuracy_mean": 0.9691,
+        "accuracy_std": 0.0027,
+        "macro_f1_mean": 0.9519,
+        "macro_f1_std": 0.0023,
+        "n_seeds": 3,
+        "n_test": 15155
+      },
+      "train_seconds_mean": 14.04
+    },
+    "group|grouped|rd_all": {
+      "clean_test": {
+        "accuracy_mean": 0.97,
+        "accuracy_std": 0.0029,
+        "macro_f1_mean": 0.9555,
+        "macro_f1_std": 0.0041,
+        "n_seeds": 3,
+        "n_test": 14986
+      },
+      "all_test": {
+        "accuracy_mean": 0.9692,
+        "accuracy_std": 0.0029,
+        "macro_f1_mean": 0.954,
+        "macro_f1_std": 0.0051,
+        "n_seeds": 3,
+        "n_test": 15155
+      },
+      "train_seconds_mean": 13.77
+    },
+    "drone|grouped|rd_clean": {
+      "clean_test": {
+        "accuracy_mean": 0.8632,
+        "accuracy_std": 0.0129,
+        "macro_f1_mean": 0.8435,
+        "macro_f1_std": 0.0143,
+        "n_seeds": 3,
+        "n_test": 11345
+      },
+      "all_test": {
+        "accuracy_mean": 0.8626,
+        "accuracy_std": 0.013,
+        "macro_f1_mean": 0.8427,
+        "macro_f1_std": 0.0143,
+        "n_seeds": 3,
+        "n_test": 11420
+      },
+      "train_seconds_mean": 11.3
+    }
+  },
+  "runs": [
+    {
+      "train_seconds": 10.95,
+      "best_epoch": 10,
+      "val_macro_f1": 0.9917,
+      "n_train": 57466,
+      "n_val": 8894,
+      "eval": {
+        "clean_test": {
+          "n_test": 8897,
+          "accuracy": 0.9945,
+          "macro_f1": 0.9916,
+          "confusion": [
+            [
+              5962,
+              19,
+              0,
+              0
+            ],
+            [
+              17,
+              962,
+              4,
+              1
+            ],
+            [
+              1,
+              5,
+              992,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              932
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 9000,
+          "accuracy": 0.9941,
+          "macro_f1": 0.9909,
+          "confusion": [
+            [
+              5981,
+              19,
+              0,
+              0
+            ],
+            [
+              19,
+              974,
+              6,
+              1
+            ],
+            [
+              1,
+              5,
+              994,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              998
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "paper",
+      "train_set": "rd_clean",
+      "seed": 0
+    },
+    {
+      "train_seconds": 10.73,
+      "best_epoch": 11,
+      "val_macro_f1": 0.9914,
+      "n_train": 57466,
+      "n_val": 8894,
+      "eval": {
+        "clean_test": {
+          "n_test": 8897,
+          "accuracy": 0.9938,
+          "macro_f1": 0.99,
+          "confusion": [
+            [
+              5961,
+              20,
+              0,
+              0
+            ],
+            [
+              17,
+              956,
+              10,
+              1
+            ],
+            [
+              0,
+              7,
+              991,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              934
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 9000,
+          "accuracy": 0.9936,
+          "macro_f1": 0.9896,
+          "confusion": [
+            [
+              5980,
+              20,
+              0,
+              0
+            ],
+            [
+              19,
+              969,
+              11,
+              1
+            ],
+            [
+              0,
+              7,
+              993,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1000
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "paper",
+      "train_set": "rd_clean",
+      "seed": 1
+    },
+    {
+      "train_seconds": 9.91,
+      "best_epoch": 10,
+      "val_macro_f1": 0.9911,
+      "n_train": 57466,
+      "n_val": 8894,
+      "eval": {
+        "clean_test": {
+          "n_test": 8897,
+          "accuracy": 0.9928,
+          "macro_f1": 0.9883,
+          "confusion": [
+            [
+              5957,
+              24,
+              0,
+              0
+            ],
+            [
+              17,
+              958,
+              8,
+              1
+            ],
+            [
+              1,
+              10,
+              987,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              931
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 9000,
+          "accuracy": 0.9926,
+          "macro_f1": 0.988,
+          "confusion": [
+            [
+              5976,
+              24,
+              0,
+              0
+            ],
+            [
+              19,
+              972,
+              8,
+              1
+            ],
+            [
+              1,
+              11,
+              988,
+              0
+            ],
+            [
+              1,
+              2,
+              0,
+              997
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "paper",
+      "train_set": "rd_clean",
+      "seed": 2
+    },
+    {
+      "train_seconds": 11.21,
+      "best_epoch": 11,
+      "val_macro_f1": 0.9899,
+      "n_train": 57868,
+      "n_val": 9000,
+      "eval": {
+        "clean_test": {
+          "n_test": 8897,
+          "accuracy": 0.994,
+          "macro_f1": 0.9913,
+          "confusion": [
+            [
+              5964,
+              17,
+              0,
+              0
+            ],
+            [
+              24,
+              956,
+              4,
+              0
+            ],
+            [
+              3,
+              3,
+              992,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              932
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 9000,
+          "accuracy": 0.9939,
+          "macro_f1": 0.9911,
+          "confusion": [
+            [
+              5983,
+              17,
+              0,
+              0
+            ],
+            [
+              26,
+              970,
+              4,
+              0
+            ],
+            [
+              3,
+              3,
+              994,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              998
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "paper",
+      "train_set": "rd_all",
+      "seed": 0
+    },
+    {
+      "train_seconds": 14.55,
+      "best_epoch": 9,
+      "val_macro_f1": 0.9906,
+      "n_train": 57868,
+      "n_val": 9000,
+      "eval": {
+        "clean_test": {
+          "n_test": 8897,
+          "accuracy": 0.9929,
+          "macro_f1": 0.9889,
+          "confusion": [
+            [
+              5964,
+              17,
+              0,
+              0
+            ],
+            [
+              26,
+              952,
+              6,
+              0
+            ],
+            [
+              1,
+              10,
+              987,
+              0
+            ],
+            [
+              2,
+              1,
+              0,
+              931
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 9000,
+          "accuracy": 0.9928,
+          "macro_f1": 0.9887,
+          "confusion": [
+            [
+              5983,
+              17,
+              0,
+              0
+            ],
+            [
+              28,
+              966,
+              6,
+              0
+            ],
+            [
+              1,
+              10,
+              989,
+              0
+            ],
+            [
+              2,
+              1,
+              0,
+              997
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "paper",
+      "train_set": "rd_all",
+      "seed": 1
+    },
+    {
+      "train_seconds": 11.24,
+      "best_epoch": 11,
+      "val_macro_f1": 0.9903,
+      "n_train": 57868,
+      "n_val": 9000,
+      "eval": {
+        "clean_test": {
+          "n_test": 8897,
+          "accuracy": 0.9934,
+          "macro_f1": 0.9895,
+          "confusion": [
+            [
+              5956,
+              25,
+              0,
+              0
+            ],
+            [
+              15,
+              963,
+              5,
+              1
+            ],
+            [
+              2,
+              10,
+              986,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              933
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 9000,
+          "accuracy": 0.9932,
+          "macro_f1": 0.9894,
+          "confusion": [
+            [
+              5975,
+              25,
+              0,
+              0
+            ],
+            [
+              17,
+              977,
+              5,
+              1
+            ],
+            [
+              2,
+              10,
+              988,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              999
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "paper",
+      "train_set": "rd_all",
+      "seed": 2
+    },
+    {
+      "train_seconds": 7.63,
+      "best_epoch": 11,
+      "val_macro_f1": 0.9844,
+      "n_train": 46573,
+      "n_val": 5975,
+      "eval": {
+        "clean_test": {
+          "n_test": 5981,
+          "accuracy": 0.9794,
+          "macro_f1": 0.9794,
+          "confusion": [
+            [
+              988,
+              4,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              5,
+              986,
+              3,
+              5,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              983,
+              0,
+              13,
+              3
+            ],
+            [
+              2,
+              0,
+              0,
+              967,
+              6,
+              22
+            ],
+            [
+              0,
+              3,
+              19,
+              4,
+              964,
+              2
+            ],
+            [
+              0,
+              0,
+              4,
+              22,
+              2,
+              970
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        },
+        "all_test": {
+          "n_test": 6000,
+          "accuracy": 0.9795,
+          "macro_f1": 0.9795,
+          "confusion": [
+            [
+              994,
+              4,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              5,
+              986,
+              3,
+              5,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              983,
+              0,
+              13,
+              3
+            ],
+            [
+              2,
+              0,
+              0,
+              970,
+              6,
+              22
+            ],
+            [
+              0,
+              3,
+              19,
+              4,
+              972,
+              2
+            ],
+            [
+              0,
+              0,
+              4,
+              22,
+              2,
+              972
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        }
+      },
+      "task": "drone",
+      "split": "paper",
+      "train_set": "rd_clean",
+      "seed": 0
+    },
+    {
+      "train_seconds": 9.77,
+      "best_epoch": 11,
+      "val_macro_f1": 0.9833,
+      "n_train": 46573,
+      "n_val": 5975,
+      "eval": {
+        "clean_test": {
+          "n_test": 5981,
+          "accuracy": 0.9786,
+          "macro_f1": 0.9786,
+          "confusion": [
+            [
+              988,
+              4,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              4,
+              989,
+              2,
+              4,
+              1,
+              0
+            ],
+            [
+              0,
+              4,
+              974,
+              0,
+              19,
+              3
+            ],
+            [
+              2,
+              2,
+              2,
+              963,
+              7,
+              21
+            ],
+            [
+              0,
+              2,
+              18,
+              5,
+              965,
+              2
+            ],
+            [
+              1,
+              0,
+              3,
+              19,
+              1,
+              974
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        },
+        "all_test": {
+          "n_test": 6000,
+          "accuracy": 0.9787,
+          "macro_f1": 0.9787,
+          "confusion": [
+            [
+              994,
+              4,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              4,
+              989,
+              2,
+              4,
+              1,
+              0
+            ],
+            [
+              0,
+              4,
+              974,
+              0,
+              19,
+              3
+            ],
+            [
+              2,
+              2,
+              2,
+              966,
+              7,
+              21
+            ],
+            [
+              0,
+              2,
+              18,
+              5,
+              973,
+              2
+            ],
+            [
+              1,
+              0,
+              3,
+              19,
+              1,
+              976
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        }
+      },
+      "task": "drone",
+      "split": "paper",
+      "train_set": "rd_clean",
+      "seed": 1
+    },
+    {
+      "train_seconds": 9.62,
+      "best_epoch": 9,
+      "val_macro_f1": 0.9834,
+      "n_train": 46573,
+      "n_val": 5975,
+      "eval": {
+        "clean_test": {
+          "n_test": 5981,
+          "accuracy": 0.9811,
+          "macro_f1": 0.9811,
+          "confusion": [
+            [
+              983,
+              3,
+              3,
+              1,
+              4,
+              0
+            ],
+            [
+              2,
+              987,
+              3,
+              6,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              981,
+              0,
+              17,
+              0
+            ],
+            [
+              2,
+              0,
+              2,
+              971,
+              4,
+              18
+            ],
+            [
+              1,
+              1,
+              17,
+              4,
+              969,
+              0
+            ],
+            [
+              0,
+              0,
+              4,
+              16,
+              1,
+              977
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        },
+        "all_test": {
+          "n_test": 6000,
+          "accuracy": 0.9812,
+          "macro_f1": 0.9812,
+          "confusion": [
+            [
+              989,
+              3,
+              3,
+              1,
+              4,
+              0
+            ],
+            [
+              2,
+              987,
+              3,
+              6,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              981,
+              0,
+              17,
+              0
+            ],
+            [
+              2,
+              0,
+              2,
+              974,
+              4,
+              18
+            ],
+            [
+              1,
+              1,
+              17,
+              4,
+              977,
+              0
+            ],
+            [
+              0,
+              0,
+              4,
+              16,
+              1,
+              979
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        }
+      },
+      "task": "drone",
+      "split": "paper",
+      "train_set": "rd_clean",
+      "seed": 2
+    },
+    {
+      "train_seconds": 13.91,
+      "best_epoch": 8,
+      "val_macro_f1": 0.9771,
+      "n_train": 44402,
+      "n_val": 15869,
+      "eval": {
+        "clean_test": {
+          "n_test": 14986,
+          "accuracy": 0.9683,
+          "macro_f1": 0.9501,
+          "confusion": [
+            [
+              10971,
+              371,
+              0,
+              3
+            ],
+            [
+              11,
+              1640,
+              6,
+              0
+            ],
+            [
+              7,
+              41,
+              1352,
+              12
+            ],
+            [
+              0,
+              0,
+              24,
+              548
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 15155,
+          "accuracy": 0.9673,
+          "macro_f1": 0.9488,
+          "confusion": [
+            [
+              11045,
+              371,
+              0,
+              4
+            ],
+            [
+              26,
+              1656,
+              6,
+              0
+            ],
+            [
+              7,
+              41,
+              1354,
+              12
+            ],
+            [
+              0,
+              0,
+              28,
+              605
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "grouped",
+      "train_set": "rd_clean",
+      "seed": 0
+    },
+    {
+      "train_seconds": 14.07,
+      "best_epoch": 7,
+      "val_macro_f1": 0.9758,
+      "n_train": 44402,
+      "n_val": 15869,
+      "eval": {
+        "clean_test": {
+          "n_test": 14986,
+          "accuracy": 0.9742,
+          "macro_f1": 0.9549,
+          "confusion": [
+            [
+              11080,
+              264,
+              0,
+              1
+            ],
+            [
+              24,
+              1623,
+              8,
+              2
+            ],
+            [
+              12,
+              31,
+              1349,
+              20
+            ],
+            [
+              0,
+              0,
+              24,
+              548
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 15155,
+          "accuracy": 0.9729,
+          "macro_f1": 0.9525,
+          "confusion": [
+            [
+              11154,
+              264,
+              0,
+              2
+            ],
+            [
+              38,
+              1637,
+              10,
+              3
+            ],
+            [
+              12,
+              31,
+              1351,
+              20
+            ],
+            [
+              0,
+              0,
+              30,
+              603
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "grouped",
+      "train_set": "rd_clean",
+      "seed": 1
+    },
+    {
+      "train_seconds": 14.15,
+      "best_epoch": 8,
+      "val_macro_f1": 0.9763,
+      "n_train": 44402,
+      "n_val": 15869,
+      "eval": {
+        "clean_test": {
+          "n_test": 14986,
+          "accuracy": 0.9678,
+          "macro_f1": 0.9551,
+          "confusion": [
+            [
+              10945,
+              396,
+              0,
+              4
+            ],
+            [
+              10,
+              1639,
+              8,
+              0
+            ],
+            [
+              10,
+              43,
+              1350,
+              9
+            ],
+            [
+              1,
+              1,
+              0,
+              570
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 15155,
+          "accuracy": 0.9671,
+          "macro_f1": 0.9544,
+          "confusion": [
+            [
+              11019,
+              396,
+              0,
+              5
+            ],
+            [
+              24,
+              1655,
+              9,
+              0
+            ],
+            [
+              10,
+              43,
+              1352,
+              9
+            ],
+            [
+              1,
+              1,
+              0,
+              631
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "grouped",
+      "train_set": "rd_clean",
+      "seed": 2
+    },
+    {
+      "train_seconds": 12.93,
+      "best_epoch": 7,
+      "val_macro_f1": 0.9706,
+      "n_train": 44666,
+      "n_val": 16047,
+      "eval": {
+        "clean_test": {
+          "n_test": 14986,
+          "accuracy": 0.9665,
+          "macro_f1": 0.9535,
+          "confusion": [
+            [
+              10925,
+              419,
+              0,
+              1
+            ],
+            [
+              7,
+              1640,
+              10,
+              0
+            ],
+            [
+              6,
+              47,
+              1348,
+              11
+            ],
+            [
+              0,
+              1,
+              0,
+              571
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 15155,
+          "accuracy": 0.9661,
+          "macro_f1": 0.9532,
+          "confusion": [
+            [
+              10999,
+              419,
+              0,
+              2
+            ],
+            [
+              16,
+              1661,
+              11,
+              0
+            ],
+            [
+              6,
+              47,
+              1350,
+              11
+            ],
+            [
+              0,
+              1,
+              0,
+              632
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "grouped",
+      "train_set": "rd_all",
+      "seed": 0
+    },
+    {
+      "train_seconds": 14.13,
+      "best_epoch": 9,
+      "val_macro_f1": 0.9652,
+      "n_train": 44666,
+      "n_val": 16047,
+      "eval": {
+        "clean_test": {
+          "n_test": 14986,
+          "accuracy": 0.9698,
+          "macro_f1": 0.9519,
+          "confusion": [
+            [
+              10992,
+              350,
+              1,
+              2
+            ],
+            [
+              13,
+              1637,
+              6,
+              1
+            ],
+            [
+              6,
+              36,
+              1363,
+              7
+            ],
+            [
+              2,
+              0,
+              28,
+              542
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 15155,
+          "accuracy": 0.9685,
+          "macro_f1": 0.9483,
+          "confusion": [
+            [
+              11066,
+              350,
+              1,
+              3
+            ],
+            [
+              23,
+              1656,
+              8,
+              1
+            ],
+            [
+              6,
+              36,
+              1365,
+              7
+            ],
+            [
+              2,
+              0,
+              40,
+              591
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "grouped",
+      "train_set": "rd_all",
+      "seed": 1
+    },
+    {
+      "train_seconds": 14.26,
+      "best_epoch": 9,
+      "val_macro_f1": 0.9771,
+      "n_train": 44666,
+      "n_val": 16047,
+      "eval": {
+        "clean_test": {
+          "n_test": 14986,
+          "accuracy": 0.9737,
+          "macro_f1": 0.9612,
+          "confusion": [
+            [
+              11029,
+              312,
+              1,
+              3
+            ],
+            [
+              15,
+              1632,
+              10,
+              0
+            ],
+            [
+              12,
+              24,
+              1359,
+              17
+            ],
+            [
+              0,
+              0,
+              0,
+              572
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        },
+        "all_test": {
+          "n_test": 15155,
+          "accuracy": 0.973,
+          "macro_f1": 0.9606,
+          "confusion": [
+            [
+              11103,
+              312,
+              1,
+              4
+            ],
+            [
+              28,
+              1649,
+              11,
+              0
+            ],
+            [
+              12,
+              24,
+              1361,
+              17
+            ],
+            [
+              0,
+              0,
+              0,
+              633
+            ]
+          ],
+          "classes": [
+            "drone",
+            "bird",
+            "human",
+            "reflector"
+          ]
+        }
+      },
+      "task": "group",
+      "split": "grouped",
+      "train_set": "rd_all",
+      "seed": 2
+    },
+    {
+      "train_seconds": 11.31,
+      "best_epoch": 7,
+      "val_macro_f1": 0.8341,
+      "n_train": 34757,
+      "n_val": 12427,
+      "eval": {
+        "clean_test": {
+          "n_test": 11345,
+          "accuracy": 0.8591,
+          "macro_f1": 0.8353,
+          "confusion": [
+            [
+              1512,
+              8,
+              4,
+              1,
+              13,
+              0
+            ],
+            [
+              2,
+              2424,
+              0,
+              32,
+              21,
+              0
+            ],
+            [
+              8,
+              17,
+              593,
+              11,
+              734,
+              42
+            ],
+            [
+              0,
+              4,
+              0,
+              938,
+              0,
+              13
+            ],
+            [
+              9,
+              19,
+              206,
+              38,
+              2238,
+              1
+            ],
+            [
+              0,
+              19,
+              117,
+              277,
+              2,
+              2042
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        },
+        "all_test": {
+          "n_test": 11420,
+          "accuracy": 0.8586,
+          "macro_f1": 0.8346,
+          "confusion": [
+            [
+              1517,
+              9,
+              4,
+              1,
+              14,
+              0
+            ],
+            [
+              2,
+              2424,
+              0,
+              33,
+              23,
+              0
+            ],
+            [
+              8,
+              17,
+              593,
+              11,
+              734,
+              42
+            ],
+            [
+              0,
+              4,
+              0,
+              940,
+              0,
+              13
+            ],
+            [
+              9,
+              21,
+              207,
+              42,
+              2279,
+              4
+            ],
+            [
+              0,
+              19,
+              117,
+              279,
+              2,
+              2052
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        }
+      },
+      "task": "drone",
+      "split": "grouped",
+      "train_set": "rd_clean",
+      "seed": 0
+    },
+    {
+      "train_seconds": 11.36,
+      "best_epoch": 4,
+      "val_macro_f1": 0.8804,
+      "n_train": 34757,
+      "n_val": 12427,
+      "eval": {
+        "clean_test": {
+          "n_test": 11345,
+          "accuracy": 0.8807,
+          "macro_f1": 0.8636,
+          "confusion": [
+            [
+              1520,
+              1,
+              16,
+              0,
+              1,
+              0
+            ],
+            [
+              12,
+              2382,
+              3,
+              27,
+              55,
+              0
+            ],
+            [
+              17,
+              12,
+              799,
+              9,
+              523,
+              45
+            ],
+            [
+              0,
+              4,
+              2,
+              913,
+              12,
+              24
+            ],
+            [
+              30,
+              5,
+              164,
+              35,
+              2275,
+              2
+            ],
+            [
+              2,
+              12,
+              90,
+              248,
+              2,
+              2103
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        },
+        "all_test": {
+          "n_test": 11420,
+          "accuracy": 0.8802,
+          "macro_f1": 0.8629,
+          "confusion": [
+            [
+              1526,
+              1,
+              16,
+              0,
+              2,
+              0
+            ],
+            [
+              12,
+              2382,
+              3,
+              28,
+              57,
+              0
+            ],
+            [
+              17,
+              12,
+              799,
+              9,
+              523,
+              45
+            ],
+            [
+              0,
+              4,
+              2,
+              915,
+              12,
+              24
+            ],
+            [
+              30,
+              5,
+              166,
+              41,
+              2317,
+              3
+            ],
+            [
+              2,
+              12,
+              90,
+              250,
+              2,
+              2113
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        }
+      },
+      "task": "drone",
+      "split": "grouped",
+      "train_set": "rd_clean",
+      "seed": 1
+    },
+    {
+      "train_seconds": 11.24,
+      "best_epoch": 7,
+      "val_macro_f1": 0.8456,
+      "n_train": 34757,
+      "n_val": 12427,
+      "eval": {
+        "clean_test": {
+          "n_test": 11345,
+          "accuracy": 0.8498,
+          "macro_f1": 0.8316,
+          "confusion": [
+            [
+              1522,
+              12,
+              1,
+              1,
+              2,
+              0
+            ],
+            [
+              9,
+              2419,
+              2,
+              34,
+              15,
+              0
+            ],
+            [
+              39,
+              20,
+              747,
+              8,
+              502,
+              89
+            ],
+            [
+              0,
+              8,
+              2,
+              926,
+              1,
+              18
+            ],
+            [
+              18,
+              29,
+              327,
+              109,
+              2024,
+              4
+            ],
+            [
+              3,
+              56,
+              120,
+              274,
+              1,
+              2003
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        },
+        "all_test": {
+          "n_test": 11420,
+          "accuracy": 0.849,
+          "macro_f1": 0.8307,
+          "confusion": [
+            [
+              1529,
+              12,
+              1,
+              1,
+              2,
+              0
+            ],
+            [
+              9,
+              2419,
+              2,
+              35,
+              17,
+              0
+            ],
+            [
+              39,
+              20,
+              747,
+              8,
+              502,
+              89
+            ],
+            [
+              0,
+              8,
+              2,
+              928,
+              1,
+              18
+            ],
+            [
+              18,
+              30,
+              330,
+              117,
+              2061,
+              6
+            ],
+            [
+              3,
+              57,
+              120,
+              276,
+              1,
+              2012
+            ]
+          ],
+          "classes": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6"
+          ]
+        }
+      },
+      "task": "drone",
+      "split": "grouped",
+      "train_set": "rd_clean",
+      "seed": 2
+    }
+  ],
+  "hardware": {
+    "cpu": "AMD EPYC 7R13 Processor",
+    "cpu_threads": 32,
+    "gpu": "NVIDIA L4"
+  }
+}

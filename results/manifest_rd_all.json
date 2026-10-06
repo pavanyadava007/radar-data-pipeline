@@ -1,0 +1,111 @@
+{
+  "dataset": "rd_all",
+  "version": "1.0.0",
+  "description": "log range-Doppler maps of every segment (no quality filtering), for the filtering ablation",
+  "rdp_version": "0.1.0",
+  "source": {
+    "file": "data_SAAB_SIRS_77GHz_FMCW.npy",
+    "md5": "01d66ba7b1ccc04477a9e69b2813f251",
+    "doi": "10.5281/zenodo.5845259",
+    "license": "CC BY 4.0"
+  },
+  "filters": {},
+  "n_segments": 75868,
+  "input": {
+    "array": "x_rd_db",
+    "shape": [
+      75868,
+      5,
+      256
+    ],
+    "dtype": "float16",
+    "meaning": "10*log10 RD power re per-segment noise floor; axes segment, range cell, Doppler bin (0 Hz at 128)"
+  },
+  "class_maps": {
+    "y_group": [
+      "drone",
+      "bird",
+      "human",
+      "reflector"
+    ],
+    "y_label": [
+      "CR",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "black-headed gull",
+      "heron",
+      "human_run",
+      "human_walk",
+      "pigeon",
+      "raven",
+      "seagull",
+      "seagull and black-headed gull"
+    ],
+    "y_drone": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6"
+    ]
+  },
+  "splits": {
+    "paper_split": "per-sample split of Karlsson et al. 2022 (1 train, 2 val, 3 test)",
+    "split_grouped": "grouped by measurement (rdp.splits.grouped_split, seed 0)"
+  },
+  "counts_paper_split": {
+    "1": {
+      "drone": 46768,
+      "bird": 5792,
+      "human": 4028,
+      "reflector": 1280
+    },
+    "2": {
+      "drone": 6000,
+      "bird": 1000,
+      "human": 1000,
+      "reflector": 1000
+    },
+    "3": {
+      "drone": 6000,
+      "bird": 1000,
+      "human": 1000,
+      "reflector": 1000
+    }
+  },
+  "counts_grouped_split": {
+    "1": {
+      "drone": 34849,
+      "bird": 4650,
+      "human": 3188,
+      "reflector": 1979
+    },
+    "2": {
+      "drone": 12499,
+      "bird": 1454,
+      "human": 1426,
+      "reflector": 668
+    },
+    "3": {
+      "drone": 11420,
+      "bird": 1688,
+      "human": 1414,
+      "reflector": 633
+    }
+  },
+  "sha256": {
+    "x_rd_db": "7959ceadbe437f72d426c90513a47df3a7092e341b214b9758fd57fd19a2ba82",
+    "segment_id": "d866d4f5f3c07660a7fbe03bced532ebbc66b3150eaf83bc6dba544d9dba72a5",
+    "measurement_id": "e672699001f336560718c655e20461fe79a7792a827e6cf884ac239b9af2a3ef",
+    "y_group": "6cfa8d1ebb8d1d62c859b30d482c9c82bb8817050835615aa7b40aa014da6eb2",
+    "y_label": "355a2d5d94d5394b937ec42742ab134f51283c7180da36c5f623baf524bfb335",
+    "y_drone": "13b5836f6233928405f3b9a58b22469f72bde4776edd487657d4c1ad7d4e73b4",
+    "paper_split": "0dc46b6463b6e14e731b764ad0e1f85eec9eeb8e9db423739cd2f465b84d9b4c",
+    "split_grouped": "1603442ffb407e2ed303330d4ea2493821fbfe45712dd62f51da98b35d43700b"
+  }
+}

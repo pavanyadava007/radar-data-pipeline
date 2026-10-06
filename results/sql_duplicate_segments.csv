@@ -1,0 +1,7 @@
+meas_a,label_a,meas_b,label_b,duplicate_pairs,pairs_across_paper_splits,label_conflict
+125,CR,125,CR,55,34,0
+88,seagull,98,black-headed gull,33,15,1
+115,CR,115,CR,10,7,0
+104,black-headed gull,105,black-headed gull,6,3,0
+112,CR,112,CR,3,2,0
+118,CR,118,CR,3,2,0

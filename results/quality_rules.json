@@ -1,0 +1,84 @@
+{
+  "thresholds": {
+    "nonfinite": 1.0,
+    "dead_block": 16.0,
+    "frozen_block": 8.0,
+    "clipping": 6.0,
+    "duplicate": 1.0,
+    "dc_offset": 0.5339,
+    "spike": 10.1569,
+    "off_centre": 1.1788,
+    "edge_cliff": 1.4515
+  },
+  "threshold_source": "hard rules fixed in config.py; statistical rules = 99.9th percentile on clean grouped-train",
+  "flags_on_real_data_by_class_group": {
+    "nonfinite": {
+      "drone": 0,
+      "bird": 0,
+      "human": 0,
+      "reflector": 0
+    },
+    "dead_block": {
+      "drone": 0,
+      "bird": 0,
+      "human": 0,
+      "reflector": 0
+    },
+    "frozen_block": {
+      "drone": 0,
+      "bird": 0,
+      "human": 0,
+      "reflector": 0
+    },
+    "clipping": {
+      "drone": 0,
+      "bird": 0,
+      "human": 0,
+      "reflector": 0
+    },
+    "duplicate": {
+      "drone": 0,
+      "bird": 39,
+      "human": 0,
+      "reflector": 18
+    },
+    "dc_offset": {
+      "drone": 2,
+      "bird": 0,
+      "human": 0,
+      "reflector": 44
+    },
+    "spike": {
+      "drone": 106,
+      "bird": 3,
+      "human": 2,
+      "reflector": 152
+    },
+    "off_centre": {
+      "drone": 38,
+      "bird": 40,
+      "human": 4,
+      "reflector": 0
+    },
+    "edge_cliff": {
+      "drone": 94,
+      "bird": 35,
+      "human": 4,
+      "reflector": 0
+    }
+  },
+  "any_integrity_flag_real": 565,
+  "any_integrity_flag_rate_real": 0.0074,
+  "edge_segments_flagged_by_edge_cliff": 20,
+  "edge_segments_flagged_by_any_rule": 21,
+  "low_snr_segments": 0,
+  "low_snr_by_class_group": {
+    "drone": 0,
+    "bird": 0,
+    "human": 0,
+    "reflector": 0
+  },
+  "time_gaps_over_0.5s": 471,
+  "exact_duplicate_segments_real": 57,
+  "rules_seconds": 5.92
+}

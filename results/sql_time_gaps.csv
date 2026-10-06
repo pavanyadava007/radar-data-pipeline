@@ -1,0 +1,16 @@
+label,measurements,gaps_over_0_5s,max_gap_s,typical_dt_s
+black-headed gull,11,192,30.97,0.1146
+seagull,34,99,31.21,0.1132
+D6,15,61,13.11,0.1007
+D5,4,38,32.7,0.1007
+D1,8,24,43.4,0.1054
+seagull and black-headed gull,4,20,31.3,0.118
+D4,4,11,7.22,0.1007
+D3,4,7,3.8,0.1008
+human_walk,7,6,10.49,0.1003
+heron,5,6,3.42,0.1187
+human_run,4,3,5.6,0.1005
+D2,9,2,0.89,0.1004
+pigeon,1,1,0.55,0.1039
+CR,19,1,1.2,0.1
+raven,1,0,0.11,0.1014
